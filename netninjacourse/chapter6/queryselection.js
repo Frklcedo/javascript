@@ -4,7 +4,7 @@ console.log(para);
 const para2 = document.querySelector('.error');
 console.log(para2);
 
-const paras = document.querySelectorAll('p');
+const paras = document.querySelectorAll('p'); // node list 
 console.log(paras);
 console.log(paras[1]);
 paras.forEach( (paraUnique,index) => {
