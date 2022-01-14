@@ -11,4 +11,4 @@ msgs.forEach(msg => {
 
 const title = document.querySelector('.title');
 title.classList.toggle('title');
-title.classList.toggle('title');
+// title.classList.toggle('title');
