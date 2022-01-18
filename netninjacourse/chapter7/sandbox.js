@@ -7,5 +7,5 @@ form.addEventListener('submit', e => {
 
     // reference obtained based on either id or name html attributes
     console.log(e.target.username.value);
-    console.log(target.username.value);
+    console.log(form.username.value);
 })
