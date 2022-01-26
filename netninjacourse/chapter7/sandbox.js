@@ -19,7 +19,7 @@ form.addEventListener('submit', e => {
     let result = unamePattern.test(username);
     if(result){
         form.username.setAttribute('class', 'success');
-        p.style.color = 'forestgreen';
+        p.style.color = 'forestgreen'
         p.textContent = 'This username is valid';
     }
     else{
