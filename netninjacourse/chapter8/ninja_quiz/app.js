@@ -16,6 +16,17 @@ quizForm.addEventListener('submit', e => {
     })
     console.log(score);
     let percentageScore = score / correctAnswers.length * 100;
+    window.scrollTo(0,0);
     result.classList.remove('d-none');
-    result.querySelector('.ninja-value').textContent = percentageScore + '%';
+    let i = 0;
+    const timer = setInterval(()=>{
+        if(i<=Math.floor(percentageScore) && i!==percentageScore){
+            result.querySelector('.ninja-value').textContent = i + '%';
+            i++;
+        }
+        else{
+            result.querySelector('.ninja-value').textContent = percentageScore + '%';
+            clearInterval(timer);
+        }
+    },10);  
 });
