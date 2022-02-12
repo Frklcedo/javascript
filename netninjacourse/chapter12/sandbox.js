@@ -9,8 +9,8 @@
 // console.log(4);
 
 // async function
-const getTodos = (callback) => {
-    
+const getTodos = (resourse, callback) => {
+        
     const request = new XMLHttpRequest();
     
     request.addEventListener('readystatechange', () => {
@@ -24,7 +24,7 @@ const getTodos = (callback) => {
         }
     });
     
-    request.open('GET','https://jsonplaceholder.typicode.com/todos/');
+    request.open('GET',resourse);
     // request.open('GET','todos.json'); // Testing own json file
     
     request.send();
@@ -33,15 +33,11 @@ const getTodos = (callback) => {
 
 console.log(1);
 console.log(2);
-getTodos((error, data)=>{
-    console.log('callback fired');
-    // console.log(error,data);
-    if(error){
-        console.log(error);
-    }
-    else{
+getTodos('todos/zelda.json',(error, data)=>{
+    console.log(data);
+    getTodos('todos/link.json', (error,data) => {
         console.log(data);
-    }
+    })
 });
 console.log(3);
 console.log(4);
