@@ -26,7 +26,10 @@ const getTodos = (resourse) => {
 };
 
 getTodos('todos/link.json').then(data => {
-    console.log('promise resolved: ', data);
+    console.log('promise 1 resolved: ', data);
+    return getTodos('todos/zelda.json');
+}).then(data => {
+    console.log('promise 2 resolved: ', data);
 }).catch(error => {
     console.log('promise rejected:', error);
 });
