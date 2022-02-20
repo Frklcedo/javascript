@@ -13,3 +13,5 @@ const stored = localStorage.getItem('todos');
 console.log('stored',stored);
 
 console.log('stored converted',JSON.parse(stored));
+
+localStorage.clear();
