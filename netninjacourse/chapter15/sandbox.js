@@ -21,12 +21,29 @@ class User {
         return this;
     }
 }
+class Admin extends User{
+
+    deleteUser(user){
+
+        users = users.filter((u) => {
+            return u.username !== userOne.username;
+        });
+
+    }
+}
 
 const userOne = new User('mario', 'mario-mariobros@nin.com');
 const userTwo = new User('luigi', 'luigi-mariobros@nin.com');
+const userThree = new Admin('bowser', 'bowser-dragon@nin.com');
 
-console.log(userOne, userTwo);
-userOne.login();
-userOne.logout();
-userTwo.login();
-userOne.login().incScore().incScore().logout();
+let users = [ userOne, userTwo, userThree];
+console.log(users);
+userThree.deleteUser(userTwo);
+console.log(users);
+
+
+// console.log(userOne, userTwo);
+// userOne.login();
+// userOne.logout();
+// userTwo.login();
+// userOne.login().incScore().incScore().logout();
