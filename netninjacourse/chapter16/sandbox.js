@@ -16,7 +16,15 @@ const unsubbtn = document.querySelector('.unsub');
 
 // list loading
 const addRecipe = (recipe, id) => {
-    let time = recipmx-aut
+    let time = recipe.created_at.toDate();
+
+    let html = `
+        <li data-id="${id}">
+            <div>${recipe.title}</div>
+            <div>${time}</div>
+            <button class="btn btn-danger btn-sm my-2">delete</button>
+        </li>
+    `;
 
     list.innerHTML += html;
 }
@@ -81,7 +89,7 @@ list.addEventListener('click', (e) => {
 })
 
 // unsub from database changes 
-unsubbtn('click', () => {
+unsubbtn.addEventListener('click', () => {
     unsub();
     console.log('unsubscribed from collection changes');
 });
