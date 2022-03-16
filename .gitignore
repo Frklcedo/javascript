@@ -1,2 +1,6 @@
 mobile/installingNode
 /netninjacourse/chapter19/node_modules
+/mobile/someFeatures/node_modules
+/mobile/someFeatures/.expo
+/mobile/someFeatures/.expo-shared
+/mobile/someFeatures/.git
