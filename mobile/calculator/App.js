@@ -36,57 +36,70 @@ export default function App(){
   }
 
   const multiplicacao = (i, j) => {
-    return parseFloat(i) * parseFloat(j);
+    let a = parseFloat(i);
+    let b = parseFloat(j);
+    return a * b;
   }
   const divisao = (i, j) => {
-    return parseFloat(i) / parseFloat(j);
+    let a = parseFloat(i);
+    let b = parseFloat(j);
+    return a / b;
   }
   const adicao = (i, j) => {
-    return parseFloat(i) + parseFloat(j);
+    let a = parseFloat(i);
+    let b = parseFloat(j);
+    return a + b;
   }
   const subtracao = (i, j) => {
-    return parseFloat(i) - parseFloat(j);
+    let a = parseFloat(i);
+    let b = parseFloat(j);
+    return a - b;
   }
   const efetuarCalc = () => {
-    const valid = /[0-9]/;
-    let calculo = [...calc];
-    if(!valid.test(calculo[calculo.length-1])){
-      calculo= calculo.toString().slice(0,calculo.length-1).trim();
+    const valid = /[^0-9]$/;
+    let op = [...calc.toString().split(' ')];
+    let last = op.pop();
+    if(!valid.test(last)){
+      op = [...op,last];
     }
-    if(calculo.length == 1){
-      setResult(calc);
+    if(op.length == 1){
+      setResult(op[0]);
       setCalc(' ');
     }
-    else{
-      calculo = calc.split(' ');
-      if(!valid.test(calculo[0])){
-        calculo = [result, ...calculo];
+    else if(op.length != 0){
+      if(valid.test(op[0])){
+        op = [result.toString(), ...op];
       }
-      for(let i; i<calculo.length;i++){
-        j = i-1;
-        if(calculo[j] == '*'){
-          calculo[i] = multiplicacao(calculo[i], calculo[j-1]);
-          calculo[j] = calculo[j-1] = 'useless';
+      console.log(op);
+      for(let i = 0; i<op.length;i++){
+        let j = i-1;
+        if(op[j] == '*'){
+          op[i] = multiplicacao(op[i], op[j-1]);
+          console.log(op[i]);
+          op[j] = op[j-1] = 'useless';
         }
-        if(calculo[j] == '/'){
-          calculo[i] = divisao(calculo[i], calculo[j-1]);
-          calculo[j] = calculo[j-1] = 'useless';
+        if(op[j] == '/'){
+          op[i] = divisao(op[j-1], op[i]);
+          op[j] = op[j-1] = 'useless';
         }
       }
-      let somaexpress = calculo.filter(c => c !== 'useless');
-      for(let i; i<somaexpress.length;i++){
-        j = i-1;
+      let somaexpress = op.filter(c => c !== 'useless');
+      for(let i = 0; i<somaexpress.length;i++){
+        let j = i-1;
         if(somaexpress[j] == '+'){
           somaexpress[i] = adicao(somaexpress[i], somaexpress[j-1]);
           somaexpress[j] = somaexpress[j-1] = 'useless';
         }
         if(somaexpress[j] == '-'){
-          somaexpress[i] = subtracao(somaexpress[i], somaexpress[j-1]);
+          somaexpress[i] = subtracao(somaexpress[j-1], somaexpress[i]);
           somaexpress[j] = somaexpress[j-1] = 'useless';
         }
       }
       let resultado = somaexpress.filter(c => c !== 'useless');
       setResult(resultado.join(' '));
+      setCalc(' ');
+      /*
+      */
     }
   }
   const enviarCaracter = (c) => {
