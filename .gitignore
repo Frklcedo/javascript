@@ -5,3 +5,14 @@ mobile/installingNode
 /mobile/someFeatures/.expo-shared
 /mobile/someFeatures/.git
 /netninjacourse/chapter20/ui-lib-project/node_modules
+/mobile/calculator/node_modules/
+/mobile/calculator/.expo/
+/mobile/calculator/dist/
+/mobile/calculator/npm-debug.*
+/mobile/calculator/*.jks
+/mobile/calculator/*.p8
+/mobile/calculator/*.p12
+/mobile/calculator/*.key
+/mobile/calculator/*.mobileprovision
+/mobile/calculator/*.orig.*
+/mobile/calculator/web-build/
