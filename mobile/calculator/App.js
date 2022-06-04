@@ -194,7 +194,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom: 30,
     paddingRight: 10,
-    height: '90%'
+    height: '90%',
+    maxHeight: 600,
+    maxWidth: 400
   },
   result:{
     color: '#121212',
