@@ -12,7 +12,6 @@
 const getTodos = (resourse, callback) => {
         
     const request = new XMLHttpRequest();
-    
     request.addEventListener('readystatechange', () => {
         // console.log(request,request.readyState);
         if(request.readyState === 4 && request.status === 200){
@@ -27,6 +26,7 @@ const getTodos = (resourse, callback) => {
     request.open('GET',resourse);
     // request.open('GET','todos.json'); // Testing own json file
     
+    console.log(request);
     request.send();
 
 };

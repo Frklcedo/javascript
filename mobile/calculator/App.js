@@ -1,4 +1,4 @@
-import { StyleSheet, View, Button, Text } from "react-native";
+import { StyleSheet, View, Button, TouchableOpacity, Text } from "react-native";
 import react,{ useState } from "react";
 
 export default function App(){
@@ -120,25 +120,59 @@ export default function App(){
   return (
     <View style={styles.container}>
       <View style={styles.calcArea}>
-        <Text style={styles.result}>{result}</Text>
-        <Text style={styles.calcBase}>{calc}</Text>
+        <View style={styles.headerCalc}>
+          <Text style={styles.result}>{result}</Text>
+          <Text style={styles.calcBase}>{calc}</Text>
+        </View>
         <View style={styles.calculator}>
-          <Button title="1" onPress={() => enviarCaracter(1)}/>
-          <Button title="2" onPress={() => enviarCaracter(2)}/>
-          <Button title="3" onPress={() => enviarCaracter(3)}/>
-          <Button title="+" onPress={() => enviarCaracter('+')}/>
-          <Button title="4" onPress={() => enviarCaracter(4)}/>
-          <Button title="5" onPress={() => enviarCaracter(5)}/>
-          <Button title="6" onPress={() => enviarCaracter(6)}/>
-          <Button title="-" onPress={() => enviarCaracter('-')}/>
-          <Button title="7" onPress={() => enviarCaracter(7)}/>
-          <Button title="8" onPress={() => enviarCaracter(8)}/>
-          <Button title="9" onPress={() => enviarCaracter(9)}/>
-          <Button title="*" onPress={() => enviarCaracter('*')}/>
-          <Button title="C" onPress={() => enviarCaracter('c')}/>
-          <Button title="0" onPress={() => enviarCaracter(0)}/>
-          <Button title="/" onPress={() => enviarCaracter('/')}/>
-          <Button title="=" onPress={() => enviarCaracter('=')}/>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(1)}>
+            <Text style={styles.innerBtn}>1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(2)}>
+            <Text style={styles.innerBtn}>2</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(3)}>
+            <Text style={styles.innerBtn}>3</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn2} onPress={() => enviarCaracter('+')}>
+            <Text style={styles.innerBtn}>+</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(4)}>
+            <Text style={styles.innerBtn}>4</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(5)}>
+            <Text style={styles.innerBtn}>5</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(6)}>
+            <Text style={styles.innerBtn}>6</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn2} onPress={() => enviarCaracter('-')}>
+            <Text style={styles.innerBtn}>-</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(7)}>
+            <Text style={styles.innerBtn}>7</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(8)}>
+            <Text style={styles.innerBtn}>8</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(9)}>
+            <Text style={styles.innerBtn}>9</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn2} onPress={() => enviarCaracter('*')}>
+            <Text style={styles.innerBtn}>*</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter('c')}>
+            <Text style={styles.innerBtn}>c</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={() => enviarCaracter(0)}>
+            <Text style={styles.innerBtn}>0</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn2} onPress={() => enviarCaracter('/')}>
+            <Text style={styles.innerBtn}>/</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn2} onPress={() => enviarCaracter('=')}>
+            <Text style={styles.innerBtn}>=</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -150,30 +184,55 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   calcArea: {
-    width: '30%',
-    minWidth: 200,
-    padding: 5,
-    border: ''
+    flex: 1,
+    justifyContent: 'space-between',
+    width: '90%',
+    paddingTop: 30,
+    paddingLeft: 10,
+    paddingBottom: 30,
+    paddingRight: 10,
+    height: '90%'
   },
   result:{
     color: '#121212',
-    fontSize: '1.1em',
+    fontSize: '1.5em',
     fontWeight: 'bold',
     textAlign: 'right',
   },
   calcBase: {
     color: '#666',
     textAlign: 'right',
-    fontSize: '0.8em',
+    fontSize: '1.1em',
     marginBottom: 6,
     marginTop: 2
   },
   calculator: {
     display: 'grid',
     gap: 4,
-    gridTemplateColumns: 'auto auto auto 20%',
+    gridTemplateColumns: 'auto auto auto auto',
+    height: '80%'
+  },
+  btn: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: "50%",
+    backgroundColor: "#21B847",
+    height: 'same-as-width'
+  },
+  btn2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: "50%",
+    backgroundColor: "#B8212A",
+    height: 'same-as-width'
+  },
+  innerBtn: {
+    color: '#fff',
+    fontSize: '1.2em'
   }
 });
