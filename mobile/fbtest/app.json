@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "firebaseproject",
-    "slug": "firebaseproject",
+    "name": "fbtest",
+    "slug": "fbtest",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
